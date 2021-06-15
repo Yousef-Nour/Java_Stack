@@ -9,13 +9,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 
+
 public class DojoController {
-	@RequestMapping("/{dojo}/")
-    public String Dojo(@PathVariable("dojo") String track){
-		System.out.println("____________");
-    	return "Track: The dojo is awesome!" + track ;
-    }
-
+	@RequestMapping("/{dojo}")
+	public String dojo(@PathVariable("dojo")String track) {
+		if(track.equals("dojo")) {
+		return "The " + track + " is awesome";
+		}
+		else if (track.equals("burbank-dojo")) {
+			return "Burbank Dojo is located in Southern California";
+		}
+		else if(track.equals("san-jose")) {
+			return "SJ dojo is the headquarters";
+		}
+		else {
+			return "Wrong Rout";
+		
+				
+	}
 	
-
+	}
 }
