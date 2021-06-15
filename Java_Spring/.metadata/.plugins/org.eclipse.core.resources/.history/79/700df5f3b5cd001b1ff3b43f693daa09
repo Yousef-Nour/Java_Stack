@@ -1,0 +1,13 @@
+package com.axsos.gettingfamiliarwithrouts;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RequestMapping("/")
+
+public class CodingController {
+	@RequestMapping("coding")
+	public String hello() {
+		return "Hello Coding Dojo";
+	}
+
+}

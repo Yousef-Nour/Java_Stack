@@ -1,0 +1,20 @@
+package com.axsos.gettingfamiliarwithrouts;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+
+@Controller
+
+public class DojoController {
+	@RequestMapping("/m/{dojo}/")
+    public String Dojo(@PathVariable("dojo") String track){
+		System.out.println("____________");
+    	return "Track: The dojo is awesome!" + track ;
+    }
+
+	
+
+}

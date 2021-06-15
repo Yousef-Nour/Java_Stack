@@ -1,0 +1,13 @@
+package com.axsos.gettingfamiliarwithrouts;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+
+public class DojoController {
+	@RequestMapping("/m/{track}/{module}/{lesson}")
+    public String showLesson(@PathVariable("track") String track){
+    	return "Track: " + track + ";;
+    }
+
+}
