@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+form {
+    display: flex;
+    flex-direction: column;
+    width: 13%;
+    margin: auto;
+    padding: 30px;
+    background-color: #00edff;
+}
+form>*{
+	font-size: larger;
+}
+	
+}
