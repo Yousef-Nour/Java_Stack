@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+main{
+	display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-left: 135px;
+}
+form{
+	padding: 50px;
+}
+#submit{
+	    margin-left: 118px;
+}
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+table {
+  width: 80%;
+  margin: auto;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
