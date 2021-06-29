@@ -27,7 +27,7 @@ public class User {
  private Long id;
  @Size(min=2, max=20, message="First Name must be greater than 2 characters")
  private String firstName;
- @Size(min=2, max=20, message="First Name must be greater than 2 characters")
+ @Size(min=2, max=20, message="Last Name must be greater than 2 characters")
  private String lastName;
  @Email(message="Email must be valid")
  private String email;

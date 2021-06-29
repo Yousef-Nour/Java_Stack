@@ -59,5 +59,9 @@ public class EventService {
 	public void createMessage(Message message) {
 		messageRepository.save(message);
 	}
+	//update event
+	public Event update(Event event) {
+		return eventRepository.save(event);
+	}
 
 }

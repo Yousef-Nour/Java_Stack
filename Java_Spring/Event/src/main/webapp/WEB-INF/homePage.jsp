@@ -15,7 +15,7 @@
 <title>Event Planner</title>
 </head>
 <body>
-<nav><a href="/logout">LogOut</a></nav>
+<nav style="float: right;"><a href="/logout">LogOut</a></nav>
 	<div class="container">
 		<h2>Welcome, ${ user.firstName }</h2>
 		<hr />

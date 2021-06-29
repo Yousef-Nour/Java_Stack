@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -157,7 +159,35 @@ public class UserController {
     	return "redirect:/events/"+id;
     	
     }
-    
+    //edit and update
+    @GetMapping("events/{id}/edit")
+	public String Edit(@PathVariable("id") Long id, HttpSession session, Model model) {
+    	Long Id = (Long) session.getAttribute("userId");
+    	Event event=eventService.findEventById(id);
+	
+		if(session.getAttribute("userId") == null)
+			return "redirect:/";
+		if(event == null || !event.getPlanner().getId().equals(session.getAttribute("userId")))
+			return "redirect:/events";
+		
+		model.addAttribute("event", event);
+		//model.addAttribute("states", State.States);
+		model.addAttribute("userId", Id);
+		return "edit.jsp";
+	}
+	@PutMapping("/{id}")
+	public String Update(@Valid @ModelAttribute("event") Event event, BindingResult result, @PathVariable("id") Long id, HttpSession session, Model model) {
+		if(result.hasErrors()) {
+			Long Id = (Long) session.getAttribute("userId");
+			model.addAttribute("event", event);
+			//model.addAttribute("states", State.States);
+			model.addAttribute("userId", Id);
+			return "edit.jsp";
+		}
+		
+		this.eventService.update(event);
+		return "redirect:/home";
+	}
     	
 }
 	
